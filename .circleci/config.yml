@@ -5,7 +5,9 @@ version: 2.1
 
 jobs:
  
-  build-suitcase:
+ # Redeem Grimm's Test Build
+ 
+  test-build:
  
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
@@ -21,7 +23,7 @@ jobs:
           command: sudo apt-get update && sudo apt-get install -y ant maven
 
       - run:
-          name: Build Suitcase
+          name: Suitcase Test Build
           command: |
             cd dependencies
             ant
@@ -32,6 +34,6 @@ jobs:
 workflows:
   build-suitcase-workflow:
     jobs:
-      - build-suitcase
+      - test-build
       
       
